@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Заявка</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Initials">Имя Фамилия</string>
+    <string name="birth">Дата рождения</string>
+    <string name="day">day</string>
+    <string name="generalInfo">Личная информация</string>
+    <string name="gender">Пол:</string>
+    <string name="vacancy">Вакансия</string>
+    <string name="position">Должность</string>
+    <string name="salary">Зарплата</string>
+    <string name="contacts">Контакты</string>
+    <string name="phone">Номер телефона</string>
+    <string name="email">e-mail</string>
+    <string name="send">Отправить</string>
+    <string name="line">line</string>
+    <string name="android">android</string>
+    <string name="candidate">Кандидат</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="rec_phone">Тел.</string>    
+    <string name="resp_button">Ответить</string>
+    <string name="response">Ответ</string>
+
+</resources>
