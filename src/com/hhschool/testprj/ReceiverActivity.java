@@ -6,6 +6,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.method.MovementMethod;
+import android.text.method.ScrollingMovementMethod;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +36,8 @@ public class ReceiverActivity extends Activity {
 		phoneView  = (TextView)findViewById(R.id.rec_phone);
 		emailView  = (TextView)findViewById(R.id.rec_email);
 		resp  = (EditText)findViewById(R.id.rec_res);
-		response = (Button)findViewById(R.id.rec_resp);
+		response = (Button)findViewById(R.id.rec_send);
+		resp.setMovementMethod(new ScrollingMovementMethod());
 		try {
 			nameView.setText(receivedReq.Name());
 			dateView.setText(receivedReq.getBirthString());

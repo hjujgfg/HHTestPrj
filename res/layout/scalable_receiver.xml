@@ -19,6 +19,7 @@
 		        android:layout_alignParentLeft="true"
 		        android:layout_alignRight="@+id/textView2"
 		        android:layout_alignTop="@+id/textView2"
+		        android:layout_alignBottom="@+id/textView2"
 		        android:alpha="0.5"
 		        android:contentDescription="@string/line"
 		        android:scaleType="fitXY"
@@ -74,25 +75,10 @@
 			    android:layout_alignTop="@+id/rec_name"
 			    android:src="@drawable/male" />
 		
-			<TextView
-			    android:id="@+id/rec_birth"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_alignBaseline="@+id/textView1"
-			    android:layout_alignBottom="@+id/textView1"
-			    android:layout_alignRight="@+id/separator1"
-			    android:text="Medium Text"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
-			<TextView
-			    android:id="@+id/textView4"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_alignLeft="@+id/rec_name"
-			    android:layout_below="@+id/textView1"
-			    android:text="@string/position"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
+			
+			
+			
+			
 			<TextView
 			    android:id="@+id/textView1"
 			    android:layout_width="wrap_content"
@@ -101,7 +87,46 @@
 			    android:layout_below="@+id/rec_name"
 			    android:text="@string/birth"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
+			<TextView
+			    android:id="@+id/rec_birth"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:scrollHorizontally="true"
+			    android:singleLine="true"
+			    android:ellipsize="marquee"
+			    android:marqueeRepeatLimit="marquee_forever"
+			    android:layout_alignBottom="@+id/textView1"
+			    android:layout_alignRight="@+id/separator1"
+			    android:layout_alignTop="@+id/textView1"
+			    android:layout_toRightOf="@+id/textView1"
+			    android:gravity="right"
+			    android:text="Medium Text"
+			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			
+			<TextView
+			    android:id="@+id/textView4"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/rec_name"
+			    android:layout_below="@+id/textView1"
+			    android:text="@string/position"
+			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			<TextView
+			    android:id="@+id/rec_pos"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"			    
+			    android:scrollHorizontally="true"			    
+			    android:singleLine="true"
+			    android:ellipsize="marquee"
+			    android:marqueeRepeatLimit="marquee_forever"
+			    android:layout_alignBottom="@+id/textView4"
+			    android:layout_alignLeft="@+id/rec_birth"
+			    android:layout_alignRight="@+id/rec_birth"
+			    android:layout_alignTop="@+id/textView4"
+			    android:gravity="right"
+			    android:text="Medium Text"
+			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			
 			<TextView
 			    android:id="@+id/textView5"
 			    android:layout_width="wrap_content"
@@ -110,27 +135,19 @@
 			    android:layout_below="@+id/textView4"
 			    android:text="@string/salary"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
-			<TextView
-			    android:id="@+id/rec_pos"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_alignBaseline="@+id/textView4"
-			    android:layout_alignBottom="@+id/textView4"
-			    android:layout_alignRight="@+id/rec_birth"
-			    android:text="Medium Text"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
 			<TextView
 			    android:id="@+id/rec_sal"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_alignBaseline="@+id/textView5"
+			    android:scrollHorizontally="true"
 			    android:layout_alignBottom="@+id/textView5"
+			    android:layout_alignLeft="@+id/rec_pos"
 			    android:layout_alignRight="@+id/rec_pos"
+			    android:layout_alignTop="@+id/textView5"
+			    android:gravity="right"
 			    android:text="Medium Text"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
+			
 			<TextView
 			    android:id="@+id/textView3"
 			    android:layout_width="wrap_content"
@@ -139,18 +156,20 @@
 			    android:layout_below="@+id/textView5"
 			    android:text="@string/rec_phone"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
 			<TextView
 			    android:id="@+id/rec_phone"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_alignBaseline="@+id/textView3"
+			    android:scrollHorizontally="true"
 			    android:layout_alignBottom="@+id/textView3"
+			    android:layout_alignLeft="@+id/rec_sal"
 			    android:layout_alignRight="@+id/rec_sal"
-			    android:text="Medium Text"
+			    android:layout_alignTop="@+id/textView3"
+			    android:gravity="right"
 			    android:autoLink="phone"
+			    android:text="Medium Text"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
+			
 			<TextView
 			    android:id="@+id/textView6"
 			    android:layout_width="wrap_content"
@@ -158,15 +177,19 @@
 			    android:layout_alignLeft="@+id/textView3"
 			    android:layout_below="@+id/textView3"
 			    android:text="@string/email"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-
+			    android:textAppearance="?android:attr/textAppearanceMedium" />	
 			<TextView
 			    android:id="@+id/rec_email"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
+			    android:scrollHorizontally="true"
 			    android:layout_alignLeft="@+id/rec_phone"
-			    android:layout_below="@+id/rec_phone"
-			    android:text="Medium Text"
+			    android:layout_alignRight="@+id/rec_phone"
+			    android:layout_alignTop="@+id/textView6"
+			    android:layout_alignBottom="@+id/textView6"
+			    android:gravity="right"
+			    android:autoLink="email"			    
+			    android:text="Medium Texthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </RelativeLayout>
@@ -181,6 +204,7 @@
 		        android:layout_alignParentLeft="true"
 		        android:layout_alignRight="@+id/response"
 		        android:layout_alignTop="@+id/response"
+		        android:layout_alignBottom="@+id/response"
 		        android:alpha="0.5"
 		        android:contentDescription="@string/line"
 		        android:scaleType="fitXY"
@@ -204,11 +228,11 @@
 		        android:layout_height="wrap_content"
 		        android:layout_marginLeft="12dp"
 		        android:layout_marginTop="12dp"	        
-		        android:text="@string/candidate"	               
+		        android:text="@string/response"	               
 		        android:textAppearance="?android:attr/textAppearanceSmall" />
 		
 			<View
-			    android:id="@+id/separator2"
+			    android:id="@+id/r_separator2"
 			    android:layout_width="match_parent"
 			    android:layout_marginLeft="8dp"
 			    android:layout_marginRight="8dp"
@@ -225,26 +249,24 @@
 		        android:alpha="0.5"
 		        android:src="@drawable/android" />
 
-	        <Button
-	            android:id="@+id/rec_resp"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_alignParentBottom="true"
-	            android:layout_alignParentLeft="true"
-	            android:layout_alignParentRight="true"
-	            android:text="@string/resp_button" />
-
 	        <EditText
 	            android:id="@+id/rec_res"
-	            android:layout_width="wrap_content"
-	            android:layout_height="fill_parent"
-	            android:layout_above="@+id/rec_resp"
-	            android:layout_alignParentLeft="true"
-	            android:layout_alignParentRight="true"	            
-	            android:ems="10"
+	            android:layout_width="fill_parent"
+	            android:layout_height="match_parent"
+	            android:layout_above="@+id/rec_send"
+	            android:layout_below="@+id/r_separator2"
 	            android:hint="@string/response"
 	            android:inputType="textMultiLine"
+	            android:scrollbars="vertical"
 	            android:minLines="5" />
+
+	        <Button
+	            android:id="@+id/rec_send"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:text="@string/resp_button" />
+	        
  
         </RelativeLayout>
     </LinearLayout>
