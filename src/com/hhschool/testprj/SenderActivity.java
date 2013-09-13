@@ -11,6 +11,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,6 +39,25 @@ public class SenderActivity extends Activity {
 		positionText = (EditText)findViewById(R.id.position);
 		salaryText = (EditText)findViewById(R.id.salary);
 		phoneText = (EditText)findViewById(R.id.phone);
+		phoneText.setFilters(new InputFilter[] {new InputFilter() {
+			
+			@Override
+			public CharSequence filter(CharSequence source, int start, int end,
+					Spanned dest, int dstart, int dend) {
+				// TODO Auto-generated method stub
+				String str = source.toString();
+				SpannableStringBuilder sb = new SpannableStringBuilder();
+				for (int i = 0; i < str.length(); i ++) {
+					if ((str.charAt(i) >= '0' && str.charAt(i) <= '9')) {
+						sb.append(str.charAt(i));
+					}
+					if (str.charAt(i) == '+' && i == 0) {
+						sb.append(str.charAt(i));
+					}
+				}						
+				return sb;
+			}
+		}});
 		emailText = (EditText)findViewById(R.id.email);
 		dateView = (TextView)findViewById(R.id.birth);
 		clock = (ImageView)findViewById(R.id.imageView1);
@@ -88,13 +112,13 @@ public class SenderActivity extends Activity {
 				}
 				if (dateView.getText().toString().isEmpty()) {
 					correct = false;
-					clock.requestFocus();
+					showDatePicker();				
 				}
-				//one of the fields contains incorrect data
+				//one of the fields is empty
 				if (!correct) {
 					return; 
 				}
-				//everything is correct
+				//everything is filled
 				updateModel();
 				Intent i = new Intent(context, ReceiverActivity.class);				
 				i.putExtra("request", currentReq);
@@ -151,7 +175,7 @@ public class SenderActivity extends Activity {
 		final Dialog dialog = new Dialog(context);
 		dialog.setContentView(R.layout.date_picker_dialog);
 		dialog.setTitle("Дата рождения");
-		final DatePicker dp = (DatePicker)dialog.findViewById(R.id.datePicker1);
+		final DatePicker dp = (DatePicker)dialog.findViewById(R.id.datePicker1);		
 		Calendar c = currentReq.getDate();
 		dp.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), null);
 		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {

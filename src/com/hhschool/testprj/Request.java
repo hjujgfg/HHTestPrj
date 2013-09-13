@@ -40,8 +40,11 @@ public class Request implements Serializable{
 		tmp.trim();		
 		String[] words = tmp.split(" ");
 		StringBuilder sb = new StringBuilder();
-		for (String s : words){
-			sb.append(s.substring(0, 1).toUpperCase() + s.substring(1) + " ");
+		String s;
+		for (String sss : words){
+			s = sss.trim();		
+			if (s.length() > 0)
+				sb.append(s.substring(0, 1).toUpperCase() + s.substring(1) + " ");
 		}
 		name = sb.toString();
 	}

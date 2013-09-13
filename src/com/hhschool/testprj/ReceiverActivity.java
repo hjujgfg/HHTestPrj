@@ -32,8 +32,9 @@ public class ReceiverActivity extends Activity {
 		dateView = (TextView)findViewById(R.id.rec_birth);
 		genderView = (ImageView)findViewById(R.id.imageView2);
 		posView  = (TextView)findViewById(R.id.rec_pos);
+		posView.setSelected(true);
 		salaryView  = (TextView)findViewById(R.id.rec_sal);
-		phoneView  = (TextView)findViewById(R.id.rec_phone);
+		phoneView  = (TextView)findViewById(R.id.rec_phone);		
 		emailView  = (TextView)findViewById(R.id.rec_email);
 		resp  = (EditText)findViewById(R.id.rec_res);
 		response = (Button)findViewById(R.id.rec_send);

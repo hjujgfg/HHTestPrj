@@ -63,6 +63,7 @@
 			    android:layout_marginLeft="4dp"
 			    android:layout_toLeftOf="@+id/imageView2"
 			    android:text=""
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 		
 			<ImageView
@@ -101,6 +102,7 @@
 			    android:layout_toRightOf="@+id/textView1"
 			    android:gravity="right"
 			    android:text="Medium Text"
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 			
 			<TextView
@@ -113,18 +115,20 @@
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 			<TextView
 			    android:id="@+id/rec_pos"
-			    android:layout_width="wrap_content"
+			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"			    
-			    android:scrollHorizontally="true"			    
+			    android:scrollHorizontally="true"			    		    
 			    android:singleLine="true"
 			    android:ellipsize="marquee"
-			    android:marqueeRepeatLimit="marquee_forever"
+			    android:freezesText="true"			    
+			    android:focusable="true"
 			    android:layout_alignBottom="@+id/textView4"
 			    android:layout_alignLeft="@+id/rec_birth"
 			    android:layout_alignRight="@+id/rec_birth"
 			    android:layout_alignTop="@+id/textView4"
 			    android:gravity="right"
 			    android:text="Medium Text"
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 			
 			<TextView
@@ -146,6 +150,7 @@
 			    android:layout_alignTop="@+id/textView5"
 			    android:gravity="right"
 			    android:text="Medium Text"
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 			
 			<TextView
@@ -168,6 +173,7 @@
 			    android:gravity="right"
 			    android:autoLink="phone"
 			    android:text="Medium Text"
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 			
 			<TextView
@@ -189,7 +195,8 @@
 			    android:layout_alignBottom="@+id/textView6"
 			    android:gravity="right"
 			    android:autoLink="email"			    
-			    android:text="Medium Texthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+			    android:text="Medium Text"
+			    android:textStyle="bold"
 			    android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </RelativeLayout>
@@ -248,18 +255,17 @@
 		        android:layout_alignParentBottom="true"
 		        android:alpha="0.5"
 		        android:src="@drawable/android" />
-
+			
 	        <EditText
 	            android:id="@+id/rec_res"
 	            android:layout_width="fill_parent"
-	            android:layout_height="match_parent"
+	            android:layout_height="wrap_content"
 	            android:layout_above="@+id/rec_send"
-	            android:layout_below="@+id/r_separator2"
+	        	android:layout_below="@+id/r_separator2"
 	            android:hint="@string/response"
-	            android:inputType="textMultiLine"
-	            android:scrollbars="vertical"
-	            android:minLines="5" />
-
+	            android:inputType="textMultiLine"	            
+	            android:minLines="5" />        
+	            
 	        <Button
 	            android:id="@+id/rec_send"
 	            android:layout_width="fill_parent"
