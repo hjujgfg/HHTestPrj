@@ -34,6 +34,7 @@ public class SenderActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scalable_sender);
+		backPressed = false;
 		nameText = (EditText)findViewById(R.id.initials);
 		genderSpinner = (Spinner)findViewById(R.id.spinner);
 		positionText = (EditText)findViewById(R.id.position);
@@ -60,6 +61,7 @@ public class SenderActivity extends Activity {
 		}});
 		emailText = (EditText)findViewById(R.id.email);
 		dateView = (TextView)findViewById(R.id.birth);
+		dateIsCorrect = false;
 		clock = (ImageView)findViewById(R.id.imageView1);
 		sendButton = (Button)findViewById(R.id.button1);
 		clock.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +112,7 @@ public class SenderActivity extends Activity {
 					correct = false; 
 					emailText.requestFocus();
 				}
-				if (dateView.getText().toString().isEmpty()) {
+				if (dateView.getText().toString().isEmpty() || !dateIsCorrect) {
 					correct = false;
 					showDatePicker();				
 				}
@@ -156,6 +158,7 @@ public class SenderActivity extends Activity {
 	EditText emailText; 
 	Button sendButton; 
 	TextView dateView;
+	boolean dateIsCorrect;
 	ImageView clock;
 	Request currentReq; 
 	final Context context = this; 
@@ -175,7 +178,8 @@ public class SenderActivity extends Activity {
 		final Dialog dialog = new Dialog(context);
 		dialog.setContentView(R.layout.date_picker_dialog);
 		dialog.setTitle("Дата рождения");
-		final DatePicker dp = (DatePicker)dialog.findViewById(R.id.datePicker1);		
+		final DatePicker dp = (DatePicker)dialog.findViewById(R.id.datePicker1);
+		
 		Calendar c = currentReq.getDate();
 		dp.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), null);
 		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -192,12 +196,41 @@ public class SenderActivity extends Activity {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						currentReq.setDate(cc);
-						dateView.setText(currentReq.getBirthString());
+						if (cc.after(Calendar.getInstance())) {
+							dateIsCorrect = false;
+							Toast t = Toast.makeText(context, "Введена дата из будущего.\nПожалуйста, установите корректную дату рождения",
+									Toast.LENGTH_SHORT);
+							t.show();
+						} else {	
+							dateIsCorrect = true;
+							currentReq.setDate(cc);
+							dateView.setText(currentReq.getBirthString());
+						}
 					}
 				});											
 			}
 		});
 		dialog.show();
+	}
+	boolean backPressed;
+	//exit on double back pressed
+	@Override
+	public void onBackPressed() {
+		if (backPressed) {
+			super.onBackPressed();
+			return;
+		}
+		backPressed = true;
+		Toast t = Toast.makeText(context, "Нажмите назад ещё раз для выхода", Toast.LENGTH_SHORT);
+		t.show();
+		Handler h = new Handler();
+		h.postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				backPressed = false;
+			}
+		}, 2000);				
 	}
 }

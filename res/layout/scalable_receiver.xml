@@ -259,18 +259,17 @@
 	        <EditText
 	            android:id="@+id/rec_res"
 	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_above="@+id/rec_send"
+	            android:layout_height="wrap_content"	            
 	        	android:layout_below="@+id/r_separator2"
 	            android:hint="@string/response"
-	            android:inputType="textMultiLine"	            
+	            android:inputType="textMultiLine"	                       
 	            android:minLines="5" />        
 	            
 	        <Button
 	            android:id="@+id/rec_send"
 	            android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"
-	            android:layout_alignParentBottom="true"
+	            android:layout_below="@+id/rec_res"
 	            android:text="@string/resp_button" />
 	        
  

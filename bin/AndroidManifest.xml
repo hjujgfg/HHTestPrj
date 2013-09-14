@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name="com.hhschool.testprj.ReceiverActivity"
-            android:label="@string/response"
+            android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
